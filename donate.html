@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to VDO Charity | Help Kids & Animals</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <img src="LOGO.png" alt="VDO Charity Foundation Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="donate.html" class="active">Donate</a></li>
+            </ul>
+            <a href="#donate-form" class="nav-cta"><i class="fas fa-heart"></i> Donate Now</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Donate -->
+    <section class="hero-donate">
+        <div class="hero-content container">
+            <h1>Make a Life-Changing Donation</h1>
+            <p>100% tax-deductible. Secure processing. Every $ helps CPPS children and shelter animals.</p>
+            <a href="#donate-form" class="cta-button large">Donate Securely Now</a>
+        </div>
+    </section>
+
+    <!-- Donation Form -->
+    <section id="donate-form" class="donation full-height">
+        <div class="container">
+            <h2 class="section-title">Complete Your Secure Donation</h2>
+            <p
+                style="font-size: 1.3rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">
+                Funds go directly to child medical care and animal shelters. Instant receipt.
+            </p>
+            <form id="paymentForm" class="donation-form">
+                <input type="hidden" name="amount" id="modalAmount" value="Custom">
+
+                <!-- Amount -->
+                <div class="form-group">
+                    <label>Donation Amount $</label>
+                    <input type="number" id="custom-amount" name="donation_amount" placeholder="50" min="1" required
+                        step="0.01">
+                </div>
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="from_name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="from_email" required>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label>Address (for receipt)</label>
+                    <input type="text" name="address" placeholder="Street, City, State ZIP">
+                </div>
+
+                <!-- Card -->
+                <div class="form-group">
+                    <label>Card Number *</label>
+                    <input type="text" name="card_number" placeholder="1234 5678 9012 3456" required maxlength="19">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Expiry MM/YY *</label>
+                        <input type="text" name="exp_date" placeholder="MM/YY" required maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV *</label>
+                        <input type="text" name="cvv" placeholder="123" required maxlength="4">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Donate Securely <i class="fas fa-lock"></i>
+                </button>
+            </form>
+            <div class="secure-note">
+                🔒 256-bit SSL | 501(c)(3) Tax Deductible | Instant Receipt
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="LOGO.png" alt="VDO Charity Foundation Logo" class="logo"
+                style="height: 40px; margin-bottom: 1rem;">
+
+            <div class="trust-badges">
+                <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-file-invoice-dollar"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="footer-content">
+                <p>&copy; 2024 VDO Charity Foundation. All rights reserved. <strong>100% Tax Deductible</strong></p>
+                <p>Contact: +1 (828) 3786721 | <a href="mailto:onofriovincent07@gmail.com"
+                        style="color: #ff6b35;">onofriovincent07@gmail.com</a></p>
+            </div>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Donate page specific - smooth scroll to form
+        document.querySelectorAll('a[href^=\"#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

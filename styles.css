@@ -309,7 +309,7 @@ nav {
 /* Hero - unchanged */
 .hero {
     height: 100vh;
-    background: url('VDO BG.png') no-repeat center center/cover fixed;
+    background: url('hero.png') no-repeat center center/cover fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -494,6 +494,49 @@ section {
 .donation {
     background: linear-gradient(135deg, #1a0a2e 0%, #0f1423 100%);
     text-align: center;
+    padding: 8rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.donation.full-height {
+    min-height: 100vh;
+}
+
+.donation-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.hero-donate {
+    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero.png') no-repeat center center/cover fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-donate .hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.cta-button.large {
+    font-size: 1.3rem !important;
+    padding: 1.2rem 3rem !important;
+}
+
+.cta-final {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(30, 41, 59, 0.8));
+    text-align: center;
+    padding: 8rem 0;
 }
 
 .donation-grid {
@@ -687,4 +730,115 @@ footer {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* New Team Section - matching about */
+#team {
+    background: rgba(26, 10, 46, 0.5);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+#team img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.team-bio h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff6b35;
+}
+
+.team-bio p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    line-height: 1.7;
+}
+
+.team-bio .quote {
+    font-style: italic;
+    color: #fff;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 107, 53, 0.1);
+    border-left: 4px solid #ff6b35;
+}
+
+/* New Events Section */
+#events {
+    background: rgba(15, 15, 40, 0.8);
+    text-align: center;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(255, 107, 53, 0.3);
+    border-color: #ff6b35;
+}
+
+.event-card i {
+    font-size: 4rem;
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.event-date {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b35, #ff8e53);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.event-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.event-cta {
+    margin-top: 1.5rem;
+    background: transparent;
+    border: 2px solid #ff6b35;
+    color: #ff6b35;
+}
+
+.event-cta:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+/* Responsive for new sections */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
 }
