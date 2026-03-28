@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VDO Charity Foundation | Caring for Kids with Chronic Pelvic Pain & Animals</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <img src="LOGO.png" alt="VDO Charity Foundation Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#donate">Donate</a></li>
+            </ul>
+            <a href="#donate" class="nav-cta"><i class="fas fa-heart"></i> Donate Now</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            VDO<br>Charity Foundation
+            <p>Caring for over 500 children with Chronic Pelvic Pain Syndrome - feeding, medication, shelter, and
+                well-being. Also supporting animal shelters. Your donation saves lives.</p>
+            <a href="#donate" class="cta-button animate" style="animation-delay: 0.2s;"><i class="fas fa-heart"></i>
+                Donate Now</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats container">
+        <div class="stat animate">
+            <i class="fas fa-dollar-sign"></i>
+            <h3 data-target="25000000">$2M</h3>
+            <p>Raised for Care</p>
+        </div>
+        <div class="stat animate">
+            <i class="fas fa-child"></i>
+            <h3 data-target="500">287</h3>
+            <p>Kids with CPPS Helped</p>
+        </div>
+        <div class="stat animate">
+            <i class="fas fa-paw"></i>
+            <h3 data-target="2000">1245</h3>
+            <p>Animals Sheltered</p>
+        </div>
+        <div class="stat animate">
+            <i class="fas fa-check-circle"></i>
+            <h3>100%</h3>
+            <p>Tax Deductible</p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title animate">Our Mission</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Caring for Innocent Children</h3>
+                    <p>VDO Charity Foundation is dedicated to caring for over 500 children suffering from
+                        Chronic Pelvic Pain Syndrome. We provide feeding, medication, shelter, and comprehensive
+                        well-being support.</p>
+                    <p>Additionally, we support animal shelters to rescue and care for abandoned animals. Every donation
+                        directly impacts these innocent lives.</p>
+                    <a href="#donate" class="cta-button"><i class="fas fa-hands-helping"></i> Support Our Cause</a>
+                </div>
+                <img src="OUR MISSION'.png" alt="Children receiving care"
+                    onerror="this.src='https://images.unsplash.com/photo-1524504388942-b6e9e6a91a1f?w=800&fit=crop';">
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <h2 class="section-title animate">Our Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card animate">
+                    <i class="fas fa-pills"></i>
+                    <h3>Medical Care</h3>
+                    <p>Providing life-saving medication and treatments for children with Chronic Pelvic Pain Syndrome.
+                    </p>
+                </div>
+                <div class="impact-card animate">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Daily Feeding</h3>
+                    <p>Nutritious meals for 500+ children every day, ensuring proper growth and health.</p>
+                </div>
+                <div class="impact-card animate">
+                    <i class="fas fa-home"></i>
+                    <h3>Safe Shelter</h3>
+                    <p>Secure housing and safe environments for children and rescued animals.</p>
+                </div>
+                <div class="impact-card animate">
+                    <i class="fas fa-paw"></i>
+                    <h3>Animal Rescue</h3>
+                    <p>Supporting animal shelters - veterinary care, food, and adoption programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Form with Address -->
+    <section id="donate" class="donation">
+        <div class="container">
+            <h2 class="section-title">Make Your Secure Donation</h2>
+            <p
+                style="font-size: 1.3rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">
+                Your gift helps children and animals. 100% tax-deductible. Secure processing.
+            </p>
+            <form id="paymentForm"
+                style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 25px; backdrop-filter: blur(25px); border: 1px solid rgba(255,107,53,0.4); box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                <input type="hidden" name="amount" id="modalAmount" value="Custom">
+
+                <!-- Amount -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label
+                        style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0; font-size: 1.1rem;">Donation
+                        Amount $</label>
+                    <input type="number" id="custom-amount" name="donation_amount" placeholder="50" min="1" required
+                        step="0.01"
+                        style="width: 100%; padding: 1.2rem; font-size: 1.5rem; font-weight: 700; text-align: center; border-radius: 15px; border: 3px solid rgba(255,107,53,0.5); background: rgba(255,255,255,0.15); color: #fff; letter-spacing: 1px;">
+                </div>
+
+                <!-- Name -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0;">Full Name
+                        *</label>
+                    <input type="text" name="from_name" required
+                        style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,107,53,0.3); color: white;">
+                </div>
+
+                <!-- Email -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0;">Email
+                        Address *</label>
+                    <input type="email" name="from_email" required
+                        style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,107,53,0.3); color: white;">
+                </div>
+
+                <!-- Address - NEW -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0;">Address (for
+                        receipt)</label>
+                    <input type="text" name="address" placeholder="Street, City, State ZIP"
+                        style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,107,53,0.3); color: white;">
+                </div>
+
+                <!-- Card Number -->
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0;">Card Number
+                        *</label>
+                    <input type="text" name="card_number" placeholder="1234 5678 9012 3456" required maxlength="19"
+                        style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,107,53,0.3); color: white; font-size: 1.1rem; letter-spacing: 1px;">
+                </div>
+
+                <!-- Expiry & CVV -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0;">Expiry
+                            MM/YY *</label>
+                        <input type="text" name="exp_date" placeholder="MM/YY" required maxlength="5"
+                            style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,107,53,0.3); color: white;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #e0e0e0;">CVV
+                            *</label>
+                        <input type="text" name="cvv" placeholder="123" required maxlength="4"
+                            style="width: 100%; padding: 1rem; border-radius: 12px; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,107,53,0.3); color: white;">
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="submitBtn"
+                    style="width: 100%; padding: 1.5rem; background: linear-gradient(45deg, #ff6b35, #ff8e53); border: none; color: white; font-size: 1.3rem; font-weight: 700; border-radius: 20px; cursor: pointer; box-shadow: 0 15px 40px rgba(255,107,53,0.4); transition: all 0.3s; position: relative; overflow: hidden;">Donate
+                    Securely <i class="fas fa-lock" style="margin-left: 0.5rem;"></i></button>
+            </form>
+            <p
+                style="text-align: center; margin-top: 2rem; opacity: 0.8; color: #ccc; font-size: 0.95rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                🔒 256-bit SSL Secure | 501(c)(3) Tax Deductible | Instant Email Receipt | Fees Covered
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <img src="LOGO.png" alt="VDO Charity Foundation Logo" class="logo"
+                style="height: 40px; margin-bottom: 1rem;">
+
+            <div class="trust-badges">
+                <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-file-invoice-dollar"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="footer-content">
+                <p>&copy; 2024 VDO Charity Foundation. All rights reserved. <strong>100% Tax
+                        Deductible</strong></p>
+                <p>Contact: +1 (828) 3786721 | <a href="mailto:onofriovincent07@gmail.com"
+                        style="color: #ff6b35;">onofriovincent07@gmail.com</a></p>
+            </div>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

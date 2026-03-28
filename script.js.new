@@ -1,0 +1,165 @@
+// VDO Charity - Premium Navbar & EmailJS Payment Modal
+// EmailJS - Live enabled - FIXED: Added init() & better error logging
+const SERVICE_ID = 'service_la0i41s';
+const TEMPLATE_ID = 'template_gjfzcwd';
+const PUBLIC_KEY = 'O-QWGFWLI-SKVhN-D';
+
+// Initialize EmailJS v4 - REQUIRED to fix 400 error
+emailjs.init(PUBLIC_KEY);
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+
+    // Animate on scroll (Intersection Observer)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animate elements
+    document.querySelectorAll('.animate').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Stats counter animation
+    function animateStats() {
+        const stats = document.querySelectorAll('[data-target]');
+        stats.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target').replace(/[^0-9]/g, ''));
+            const count = parseInt(stat.innerText.replace(/[^0-9]/g, ''));
+            const increment = target / 100;
+            let current = count;
+
+            if (current < target) {
+                current += increment;
+                stat.innerText = '$' + Math.floor(current).toLocaleString() + (stat.querySelector('p').textContent.includes('100%') ? '%' : '');
+                if (stat.querySelector('p').textContent.includes('Users') || stat.querySelector('p').textContent.includes('Venues')) {
+                    stat.innerText = Math.floor(current).toLocaleString();
+                }
+                requestAnimationFrame(animateStats);
+            }
+        });
+    }
+
+    // Trigger stats when stats section visible
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+        observer.observe(statsSection);
+        // Initial call if already visible
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+            animateStats();
+        }
+    }
+
+    // Payment Modal Functions
+    let currentAmount = 0;
+
+    window.openPaymentModal = function (amount = 0) {
+        currentAmount = amount;
+        const modalAmount = document.getElementById('modalAmount');
+        const modal = document.getElementById('paymentModal');
+        if (modalAmount) modalAmount.value = amount ? `$${amount}` : '';
+        if (modal) modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeModal = function () {
+        const modal = document.getElementById('paymentModal');
+        if (modal) modal.classList.remove('show');
+        document.body.style.overflow = '';
+    };
+
+    // Close modal on outside click or X
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal') || e.target.classList.contains('modal-close')) {
+            window.closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') window.closeModal();
+    });
+
+    // Donation handlers - Open modal
+    document.querySelectorAll('.donate-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const amount = btn.dataset.amount;
+            window.openPaymentModal(amount);
+        });
+    });
+
+    // Custom donate - Open modal
+    window.handleCustomDonate = function () {
+        const finalAmount = document.getElementById('custom-amount').value;
+        if (!finalAmount || finalAmount <= 0) {
+            alert('Please enter a valid amount');
+            return;
+        }
+        window.openPaymentModal(finalAmount);
+    };
+
+    // EmailJS Form Submit (IMPROVED ERROR HANDLING)
+    const paymentForm = document.getElementById('paymentForm');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validate form before send
+            console.log('Sending form data:', new FormData(this));
+
+            emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this, PUBLIC_KEY)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response);
+                    alert('Donation details sent to VDO Charity! ❤️ Thank you for helping kids & animals.');
+                    window.closeModal();
+                    this.reset();
+                }, (error) => {
+                    console.error('EmailJS FAILED:', error.status, error.text || error);
+                    alert(`Send error: ${error.status || 'Unknown'} - ${error.text || 'Check console for details. Still recorded locally.'}`);
+                });
+        });
+    }
+});
+
+// Global scroll effects
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (header) header.classList.toggle('scrolled', window.scrollY > 50);
+});
